@@ -4,10 +4,10 @@ import { Icon } from 'astro-icon/components'
 const { src = '/img-header.jpg' } = Astro.props
 ---
 
-<section class="hero my-24">
+<section class="hero">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
-      <div class="flex flex-col items-center gap-8 md:items-start">
+    <div class="grid grid-cols-1 items-center pt-5 gap-24 lg:grid-cols-2">
+      <div class="flex flex-col items-center gap-6 md:items-start">
         <h1 class="text-center text-6xl md:text-left lg:text-8xl">
           <slot>Mobile Auto Repair Services</slot>
         </h1>
@@ -26,7 +26,7 @@ const { src = '/img-header.jpg' } = Astro.props
           </a>
         </div>
       </div>
-      <img class="lg:block" src={src} alt="" decoding="async" style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);"/>
+      <img class="lg:block pb-10" src={src} alt="" decoding="async" style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);"/>
     </div>
   </div>
 </section>
