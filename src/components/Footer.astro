@@ -1,0 +1,16 @@
+---
+import CallToAction from './CallToAction.astro'
+
+const currentYear = new Date().getFullYear()
+---
+
+<footer>
+  <CallToAction />
+  <section class="py-8">
+    <div class="container">
+      <p>
+        &copy; {currentYear} - Owen's Mobile Auto Repair Services
+      </p>
+    </div>
+  </section>
+</footer>
