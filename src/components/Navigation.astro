@@ -1,14 +1,13 @@
 ---
 import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
-import { Image } from 'astro:assets'
-import logo from '../assets/img/owens.png'
 ---
+
 
 <div id="main-navigation" class="is-desktop py-6">
   <div class="container">
     <a href="/" class="flex items-center gap-2 !no-underline">
-      <Image src={logo} alt="Your Logo" width="200" height="37" />
+      <img id="logo" src='/owens-secundary.png' alt="Your Logo" width="200" height="37" />
     </a>
     <div class="wrapper">
       <nav class="desktop-menu" aria-label="Main navigation desktop">
@@ -16,7 +15,9 @@ import logo from '../assets/img/owens.png'
           <slot />
         </ul>
       </nav>
-      <DarkMode />
+      <div id="dark-mode">
+        <DarkMode />
+      </div>
       <ResponsiveToggle />
     </div>
     <nav class="mobile-menu" aria-label="Main navigation mobile">
@@ -30,11 +31,26 @@ import logo from '../assets/img/owens.png'
 <script>
   document.addEventListener('astro:page-load', () => {
     // variables
+    const darkModeBtn = document.querySelector('#dark-mode')
+    darkModeBtn.addEventListener('click', () => changueLogoColor())
     const mainNav = document.querySelector('#main-navigation')
     const mainMenu = mainNav.querySelector('ul')
     const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
 
     // functions
+    const changueLogoColor = () => {
+       const backgroundColor = document.querySelector('body')
+       const logo = document.querySelector('#logo')
+       const style = getComputedStyle(backgroundColor)
+       const bgstyle = style.backgroundColor
+       if (bgstyle === 'rgb(22, 22, 24)'){
+        logo.setAttribute("src", "/owens-secundary.png");
+       }else{
+        logo.setAttribute("src", "/social-preview-image.png");
+       }
+       console.log(bgstyle);
+    }
+
     const setActiveMenuItem = () => {
       const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
       const currenPathname = window.location.pathname
