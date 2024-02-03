@@ -3,11 +3,10 @@ import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
 ---
 
-
 <div id="main-navigation" class="is-desktop py-6">
   <div class="container">
     <a href="/" class="flex items-center gap-2 !no-underline">
-      <img id="logo" src='/owens-secundary.png' alt="Your Logo" width="200" height="37" />
+      <img id="logo" src="/owens-secundary.png" alt="Your Logo" width="200" height="37" />
     </a>
     <div class="wrapper">
       <nav class="desktop-menu" aria-label="Main navigation desktop">
@@ -30,6 +29,15 @@ import { DarkMode } from 'accessible-astro-components'
 
 <script>
   document.addEventListener('astro:page-load', () => {
+      const backgroundColor = document.querySelector('body')
+      const logo = document.querySelector('#logo')
+      const style = getComputedStyle(backgroundColor)
+      const bgstyle = style.backgroundColor
+      if (bgstyle === 'rgb(22, 22, 24)') {
+        logo.setAttribute('src', '/owens-secundary.png')
+      } else {
+        logo.setAttribute('src', '/social-preview-image.png')
+      }
     // variables
     const darkModeBtn = document.querySelector('#dark-mode')
     darkModeBtn.addEventListener('click', () => changueLogoColor())
@@ -38,17 +46,18 @@ import { DarkMode } from 'accessible-astro-components'
     const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
 
     // functions
+
     const changueLogoColor = () => {
-       const backgroundColor = document.querySelector('body')
-       const logo = document.querySelector('#logo')
-       const style = getComputedStyle(backgroundColor)
-       const bgstyle = style.backgroundColor
-       if (bgstyle === 'rgb(22, 22, 24)'){
-        logo.setAttribute("src", "/owens-secundary.png");
-       }else{
-        logo.setAttribute("src", "/social-preview-image.png");
-       }
-       console.log(bgstyle);
+      const backgroundColor = document.querySelector('body')
+      const logo = document.querySelector('#logo')
+      const style = getComputedStyle(backgroundColor)
+      const bgstyle = style.backgroundColor
+      if (bgstyle === 'rgb(22, 22, 24)') {
+        logo.setAttribute('src', '/owens-secundary.png')
+      } else {
+        logo.setAttribute('src', '/social-preview-image.png')
+      }
+      console.log(bgstyle)
     }
 
     const setActiveMenuItem = () => {
