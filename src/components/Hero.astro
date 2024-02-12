@@ -26,7 +26,10 @@ const { src = '/img-header.jpg' } = Astro.props
           </a>
         </div>
       </div>
-      <img class="lg:block pb-10" src={src} alt="" decoding="async" style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);"/>
+      <div style="background-color: black; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
+
+        <img class="lg:block" src={src} alt="" decoding="async" style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);"/>
+      </div>
     </div>
   </div>
 </section>
